@@ -3,9 +3,7 @@ import React, {useState} from "react";
 //include images into your bundle
 import rigoImage from "../../img/rigo-baby.jpg";
 
-function encenderRojo () {
-	setColor1 ("btn-danger")
-}
+
 // function encenderRojo () {
 // 	setColor1 ("btn-danger")
 // }
@@ -58,7 +56,27 @@ function encenderVerde() {
 	setSombra3("0 0 15px 10px yellow")
 	}
 }
+function alternarColor() {
+	if(sombraColor1 === "0 0 15px 10px yellow"){
+		setSombra1("");
+		setSombra2("0 0 15px 10px yellow");
+		setSombra3("");
+	}
+	if(sombraColor2 === "0 0 15px 10px yellow"){
+		setSombra1("");
+		setSombra2("");
+		setSombra3("0 0 15px 10px yellow");
+	}
+if(sombraColor3 === "0 0 15px 10px yellow"){
+		setSombra2("");
+		setSombra3("");
+		setSombra1("0 0 15px 10px yellow");
+	}
+	else if(sombraColor1 ==="" && sombraColor2 ==="" && sombraColor3 ===""){
+		setSombra1("0 0 15px 10px yellow");
+	}
 
+}
 return(
 	<div className="text-center d-flex flex-column align-items-center">
 		<div class="bg-dark" style={{height:"150px", width:"10px"}}></div>
@@ -67,6 +85,9 @@ return(
 		<button className={"btn border rounded-circle mx-2 btn-warning "+color2} onClick={encenderAmarillo} style={{height: "100px",boxShadow: sombraColor2}}></button>
 		<button className={"btn border rounded-circle mb-3 mx-2 btn-success "+color3} onClick={encenderVerde} style={{height: "100px", boxShadow: sombraColor3}}></button>
 		</div>
+
+		<button type="button" className="btn btn-info m-5" onClick={alternarColor}>Click to change light</button>
+
 	</div>
 );
 };
